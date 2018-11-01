@@ -1,0 +1,32 @@
+<!-- <mat-input-container>
+    <input matInput placeholder="{{ 'findCustomer' | translate }}!"
+           [matAutocomplete]="customersAutocomplete" [formControl]="customerFormControl">
+</mat-input-container>
+
+<mat-autocomplete #customersAutocomplete="matAutocomplete">
+    <mat-option *ngFor="let customer of filteredCustomers"
+                (onSelectionChange)="searchCustomer(customer)"
+                [value]="customer.customerName">
+        {{customer.customerName}}
+    </mat-option>
+</mat-autocomplete> -->
+
+   <tag-input [ngClass]="'tag-select'"
+                     theme='bootstrap'
+                     [ngModel]="[]"
+                     [placeholder]="'Enter a new item'"
+                     [onTextChangeDebounce]="500"
+                     [secondaryPlaceholder]="'Find Customer'"
+                     [onlyFromAutocomplete]="true">
+            <tag-input-dropdown [autocompleteObservable]="requestAutocompleteItems">
+              <ng-template let-item="item" let-index="index">
+                {{ item.customerName }}
+              </ng-template>
+            </tag-input-dropdown>
+          </tag-input> 
+         <!-- <div class="col-sm-12 col-xl-4">
+         
+          <tag-input [ngClass]="'tag-select'" theme='bootstrap' [secondaryPlaceholder]="'Select your nice name'" [placeholder] = "'Select Name +'" [ngModel]="[]" [onlyFromAutocomplete]="true">
+            <tag-input-dropdown [autocompleteItems]="filteredCustomers"></tag-input-dropdown>
+          </tag-input>
+        </div> -->
